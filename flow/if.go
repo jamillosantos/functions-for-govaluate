@@ -9,10 +9,10 @@ func If(args ...interface{}) (interface{}, error) {
 		condition := false
 		if args[0] != nil {
 			switch cond := args[0].(type) {
-			case string:
-				condition = cond != ""
-			case float64:
-				condition = cond != 0
+			case bool:
+				condition = cond
+			case float64, float32, int, uint, int8, int16, int32, int64, uint8, uint16, uint32, uint64:
+				return IsDefined(args[0])
 			default:
 				return nil, errors.NewWrongParamType(0)
 			}
