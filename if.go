@@ -1,8 +1,4 @@
-package flow
-
-import (
-	"github.com/jamillosantos/functions-for-govaluate/errors"
-)
+package functions_for_govaluate
 
 func If(args ...interface{}) (interface{}, error) {
 	if len(args) == 3 {
@@ -14,7 +10,7 @@ func If(args ...interface{}) (interface{}, error) {
 			case float64, float32, int, uint, int8, int16, int32, int64, uint8, uint16, uint32, uint64:
 				return IsDefined(args[0])
 			default:
-				return nil, errors.NewWrongParamType(0)
+				return nil, NewWrongParamType(0)
 			}
 		}
 		if condition {
@@ -23,5 +19,5 @@ func If(args ...interface{}) (interface{}, error) {
 			return args[2], nil
 		}
 	}
-	return nil, errors.WrongParamsCount
+	return nil, WrongParamsCount
 }

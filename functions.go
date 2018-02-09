@@ -2,18 +2,53 @@ package functions_for_govaluate
 
 import (
 	"gopkg.in/Knetic/govaluate.v2"
-	"github.com/jamillosantos/functions-for-govaluate/math"
-	"github.com/jamillosantos/functions-for-govaluate/flow"
 )
+
+var FlowFunctions map[string]govaluate.ExpressionFunction = map[string]govaluate.ExpressionFunction{
+	"isDefined": IsDefined,
+	"ifnull":    IfNull,
+	"if":        If,
+}
+
+var MathFunctions map[string]govaluate.ExpressionFunction = map[string]govaluate.ExpressionFunction{
+	"cos":   Cos,
+	"acos":  Acos,
+	"cosh":  Cosh,
+	"acosh": Acosh,
+
+	"exp":  Exp,
+	"exp2": Exp2,
+
+	"log":   Log,
+	"log10": Log10,
+
+	"round": Round,
+	"floor": Floor,
+	"ceil":  Ceil,
+	"trunc": Trunc,
+
+	"sin":   Sin,
+	"asin":  Asin,
+	"sinh":  Sinh,
+	"asinh": Asinh,
+
+	"sqrt": Sqrt,
+
+	"tan":   Tan,
+	"atan":  Atan,
+	"atan2": Atan2,
+	"tanh":  Tanh,
+	"atanh": Atanh,
+}
 
 var Functions map[string]govaluate.ExpressionFunction
 
 func init() {
 	Functions = make(map[string]govaluate.ExpressionFunction)
-	for k, v := range math.Functions {
+	for k, v := range MathFunctions {
 		Functions[k] = v
 	}
-	for k, v := range flow.Functions {
+	for k, v := range FlowFunctions {
 		Functions[k] = v
 	}
 }

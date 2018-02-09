@@ -1,4 +1,4 @@
-package errors
+package functions_for_govaluate
 
 import (
 	"github.com/pkg/errors"

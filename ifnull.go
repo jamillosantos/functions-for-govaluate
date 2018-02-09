@@ -1,8 +1,4 @@
-package flow
-
-import (
-	"github.com/jamillosantos/functions-for-govaluate/errors"
-)
+package functions_for_govaluate
 
 func IfNull(args ...interface{}) (interface{}, error) {
 	for i, v := range args {
@@ -13,7 +9,7 @@ func IfNull(args ...interface{}) (interface{}, error) {
 		case float64:
 			condition = cond != 0
 		default:
-			return nil, errors.NewWrongParamType(i)
+			return nil, NewWrongParamType(i)
 		}
 		if condition {
 			return v, nil

@@ -1,30 +1,29 @@
-package math
+package functions_for_govaluate
 
 import (
 	"math"
-	"github.com/jamillosantos/functions-for-govaluate/errors"
 )
 
 func Floor(args ...interface{}) (interface{}, error) {
 	if len(args) == 1 {
 		v, ok := ToFloat64(args[0])
 		if !ok {
-			return math.NaN(), errors.NewWrongParamType(0)
+			return math.NaN(), NewWrongParamType(0)
 		}
 		return math.Floor(v), nil
 	}
-	return nil, errors.WrongParamsCount
+	return nil, WrongParamsCount
 }
 
 func Ceil(args ...interface{}) (interface{}, error) {
 	if len(args) == 1 {
 		v, ok := ToFloat64(args[0])
 		if !ok {
-			return math.NaN(), errors.NewWrongParamType(0)
+			return math.NaN(), NewWrongParamType(0)
 		}
 		return math.Ceil(v), nil
 	}
-	return nil, errors.WrongParamsCount
+	return nil, WrongParamsCount
 }
 
 func Round(args ...interface{}) (interface{}, error) {
@@ -32,7 +31,7 @@ func Round(args ...interface{}) (interface{}, error) {
 	case 1:
 		v, ok := ToFloat64(args[0])
 		if !ok {
-			return math.NaN(), errors.NewWrongParamType(0)
+			return math.NaN(), NewWrongParamType(0)
 		}
 		if math.IsNaN(v) {
 			return math.NaN(), nil
@@ -46,11 +45,11 @@ func Round(args ...interface{}) (interface{}, error) {
 	case 2:
 		v1, ok := ToFloat64(args[0])
 		if !ok {
-			return math.NaN(), errors.NewWrongParamType(0)
+			return math.NaN(), NewWrongParamType(0)
 		}
 		v2, ok := ToFloat64(args[1])
 		if !ok {
-			return math.NaN(), errors.NewWrongParamType(1)
+			return math.NaN(), NewWrongParamType(1)
 		}
 
 		var round float64
@@ -64,16 +63,16 @@ func Round(args ...interface{}) (interface{}, error) {
 		}
 		return round / pow, nil
 	}
-	return nil, errors.WrongParamsCount
+	return nil, WrongParamsCount
 }
 
 func Trunc(args ...interface{}) (interface{}, error) {
 	if len(args) == 1 {
 		v, ok := ToFloat64(args[0])
 		if !ok {
-			return math.NaN(), errors.NewWrongParamType(0)
+			return math.NaN(), NewWrongParamType(0)
 		}
 		return math.Trunc(v), nil
 	}
-	return nil, errors.WrongParamsCount
+	return nil, WrongParamsCount
 }
