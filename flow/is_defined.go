@@ -1,6 +1,8 @@
 package flow
 
-import "github.com/jamillosantos/functions-for-govaluate"
+import (
+	"github.com/jamillosantos/functions-for-govaluate/errors"
+)
 
 func IsDefined(args ...interface{}) (interface{}, error) {
 	if len(args) == 1 {
@@ -11,10 +13,10 @@ func IsDefined(args ...interface{}) (interface{}, error) {
 			case float64:
 				return cond != 0.0, nil
 			default:
-				return nil, functions_for_govaluate.NewWrongParamType(0)
+				return nil, errors.NewWrongParamType(0)
 			}
 		}
 		return false, nil
 	}
-	return nil, functions_for_govaluate.WrongParamsCount
+	return nil, errors.WrongParamsCount
 }

@@ -1,30 +1,30 @@
 package math
 
 import (
-	"github.com/jamillosantos/functions-for-govaluate"
 	"math"
+	"github.com/jamillosantos/functions-for-govaluate/errors"
 )
 
 func Floor(args ...interface{}) (interface{}, error) {
 	if len(args) == 1 {
 		v, ok := args[0].(float64)
 		if !ok {
-			return math.NaN(), functions_for_govaluate.NewWrongParamType(0)
+			return math.NaN(), errors.NewWrongParamType(0)
 		}
 		return math.Floor(v), nil
 	}
-	return nil, functions_for_govaluate.WrongParamsCount
+	return nil, errors.WrongParamsCount
 }
 
 func Ceil(args ...interface{}) (interface{}, error) {
 	if len(args) == 1 {
 		v, ok := args[0].(float64)
 		if !ok {
-			return math.NaN(), functions_for_govaluate.NewWrongParamType(0)
+			return math.NaN(), errors.NewWrongParamType(0)
 		}
 		return math.Ceil(v), nil
 	}
-	return nil, functions_for_govaluate.WrongParamsCount
+	return nil, errors.WrongParamsCount
 }
 
 func Round(args ...interface{}) (interface{}, error) {
@@ -32,7 +32,7 @@ func Round(args ...interface{}) (interface{}, error) {
 	case 1:
 		v, ok := args[0].(float64)
 		if !ok {
-			return math.NaN(), functions_for_govaluate.NewWrongParamType(0)
+			return math.NaN(), errors.NewWrongParamType(0)
 		}
 		if math.IsNaN(v) {
 			return math.NaN(), nil
@@ -46,11 +46,11 @@ func Round(args ...interface{}) (interface{}, error) {
 	case 2:
 		v1, ok := args[0].(float64)
 		if !ok {
-			return math.NaN(), functions_for_govaluate.NewWrongParamType(0)
+			return math.NaN(), errors.NewWrongParamType(0)
 		}
 		v2, ok := args[0].(float64)
 		if !ok {
-			return math.NaN(), functions_for_govaluate.NewWrongParamType(1)
+			return math.NaN(), errors.NewWrongParamType(1)
 		}
 
 		var round float64
@@ -64,16 +64,16 @@ func Round(args ...interface{}) (interface{}, error) {
 		}
 		return round / pow, nil
 	}
-	return nil, functions_for_govaluate.WrongParamsCount
+	return nil, errors.WrongParamsCount
 }
 
 func Trunc(args ...interface{}) (interface{}, error) {
 	if len(args) == 1 {
 		v, ok := args[0].(float64)
 		if !ok {
-			return math.NaN(), functions_for_govaluate.NewWrongParamType(0)
+			return math.NaN(), errors.NewWrongParamType(0)
 		}
 		return math.Trunc(v), nil
 	}
-	return nil, functions_for_govaluate.WrongParamsCount
+	return nil, errors.WrongParamsCount
 }

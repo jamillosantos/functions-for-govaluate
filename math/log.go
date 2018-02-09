@@ -2,27 +2,27 @@ package math
 
 import (
 	"math"
-	"github.com/jamillosantos/functions-for-govaluate"
+	"github.com/jamillosantos/functions-for-govaluate/errors"
 )
 
 func Log(args ...interface{}) (interface{}, error) {
 	if len(args) == 1 {
 		v, ok := args[0].(float64)
 		if !ok {
-			return math.NaN(), functions_for_govaluate.NewWrongParamType(0)
+			return math.NaN(), errors.NewWrongParamType(0)
 		}
 		return math.Log(v), nil
 	}
-	return nil, functions_for_govaluate.WrongParamsCount
+	return nil, errors.WrongParamsCount
 }
 
 func Log10(args ...interface{}) (interface{}, error) {
 	if len(args) == 1 {
 		v, ok := args[0].(float64)
 		if !ok {
-			return math.NaN(), functions_for_govaluate.NewWrongParamType(0)
+			return math.NaN(), errors.NewWrongParamType(0)
 		}
 		return math.Log10(v), nil
 	}
-	return nil, functions_for_govaluate.WrongParamsCount
+	return nil, errors.WrongParamsCount
 }
