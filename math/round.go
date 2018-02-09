@@ -7,7 +7,7 @@ import (
 
 func Floor(args ...interface{}) (interface{}, error) {
 	if len(args) == 1 {
-		v, ok := args[0].(float64)
+		v, ok := ToFloat64(args[0])
 		if !ok {
 			return math.NaN(), errors.NewWrongParamType(0)
 		}
@@ -18,7 +18,7 @@ func Floor(args ...interface{}) (interface{}, error) {
 
 func Ceil(args ...interface{}) (interface{}, error) {
 	if len(args) == 1 {
-		v, ok := args[0].(float64)
+		v, ok := ToFloat64(args[0])
 		if !ok {
 			return math.NaN(), errors.NewWrongParamType(0)
 		}
@@ -30,7 +30,7 @@ func Ceil(args ...interface{}) (interface{}, error) {
 func Round(args ...interface{}) (interface{}, error) {
 	switch len(args) {
 	case 1:
-		v, ok := args[0].(float64)
+		v, ok := ToFloat64(args[0])
 		if !ok {
 			return math.NaN(), errors.NewWrongParamType(0)
 		}
@@ -44,11 +44,11 @@ func Round(args ...interface{}) (interface{}, error) {
 		}
 		return 0.0, nil
 	case 2:
-		v1, ok := args[0].(float64)
+		v1, ok := ToFloat64(args[0])
 		if !ok {
 			return math.NaN(), errors.NewWrongParamType(0)
 		}
-		v2, ok := args[0].(float64)
+		v2, ok := ToFloat64(args[1])
 		if !ok {
 			return math.NaN(), errors.NewWrongParamType(1)
 		}
@@ -69,7 +69,7 @@ func Round(args ...interface{}) (interface{}, error) {
 
 func Trunc(args ...interface{}) (interface{}, error) {
 	if len(args) == 1 {
-		v, ok := args[0].(float64)
+		v, ok := ToFloat64(args[0])
 		if !ok {
 			return math.NaN(), errors.NewWrongParamType(0)
 		}

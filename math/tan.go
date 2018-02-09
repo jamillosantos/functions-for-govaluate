@@ -7,7 +7,7 @@ import (
 
 func Tan(args ...interface{}) (interface{}, error) {
 	if len(args) == 1 {
-		v, ok := args[0].(float64)
+		v, ok := ToFloat64(args[0])
 		if !ok {
 			return math.NaN(), errors.NewWrongParamType(0)
 		}
@@ -18,7 +18,7 @@ func Tan(args ...interface{}) (interface{}, error) {
 
 func Tanh(args ...interface{}) (interface{}, error) {
 	if len(args) == 1 {
-		v, ok := args[0].(float64)
+		v, ok := ToFloat64(args[0])
 		if !ok {
 			return math.NaN(), errors.NewWrongParamType(0)
 		}
@@ -29,7 +29,7 @@ func Tanh(args ...interface{}) (interface{}, error) {
 
 func Atan(args ...interface{}) (interface{}, error) {
 	if len(args) == 1 {
-		v, ok := args[0].(float64)
+		v, ok := ToFloat64(args[0])
 		if !ok {
 			return math.NaN(), errors.NewWrongParamType(0)
 		}
@@ -40,11 +40,11 @@ func Atan(args ...interface{}) (interface{}, error) {
 
 func Atan2(args ...interface{}) (interface{}, error) {
 	if len(args) == 2 {
-		v1, ok := args[0].(float64)
+		v1, ok := ToFloat64(args[0])
 		if !ok {
 			return math.NaN(), errors.NewWrongParamType(0)
 		}
-		v2, ok := args[0].(float64)
+		v2, ok := ToFloat64(args[1])
 		if !ok {
 			return math.NaN(), errors.NewWrongParamType(1)
 		}
@@ -55,7 +55,7 @@ func Atan2(args ...interface{}) (interface{}, error) {
 
 func Atanh(args ...interface{}) (interface{}, error) {
 	if len(args) == 1 {
-		v, ok := args[0].(float64)
+		v, ok := ToFloat64(args[0])
 		if !ok {
 			return math.NaN(), errors.NewWrongParamType(0)
 		}

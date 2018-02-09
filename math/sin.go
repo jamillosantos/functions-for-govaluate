@@ -7,7 +7,7 @@ import (
 
 func Sin(args ...interface{}) (interface{}, error) {
 	if len(args) == 1 {
-		v, ok := args[0].(float64)
+		v, ok := ToFloat64(args[0])
 		if !ok {
 			return math.NaN(), errors.NewWrongParamType(0)
 		}
@@ -18,7 +18,7 @@ func Sin(args ...interface{}) (interface{}, error) {
 
 func Sinh(args ...interface{}) (interface{}, error) {
 	if len(args) == 1 {
-		v, ok := args[0].(float64)
+		v, ok := ToFloat64(args[0])
 		if !ok {
 			return math.NaN(), errors.NewWrongParamType(0)
 		}
@@ -29,7 +29,7 @@ func Sinh(args ...interface{}) (interface{}, error) {
 
 func Asin(args ...interface{}) (interface{}, error) {
 	if len(args) == 1 {
-		v, ok := args[0].(float64)
+		v, ok := ToFloat64(args[0])
 		if !ok {
 			return math.NaN(), errors.NewWrongParamType(0)
 		}
@@ -40,7 +40,7 @@ func Asin(args ...interface{}) (interface{}, error) {
 
 func Asinh(args ...interface{}) (interface{}, error) {
 	if len(args) == 1 {
-		v, ok := args[0].(float64)
+		v, ok := ToFloat64(args[0])
 		if !ok {
 			return math.NaN(), errors.NewWrongParamType(0)
 		}

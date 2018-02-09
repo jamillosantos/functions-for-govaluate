@@ -7,8 +7,8 @@ import (
 
 func Cos(args ...interface{}) (interface{}, error) {
 	if len(args) == 1 {
-		v, ok := args[0].(float64)
-		if !ok {
+		v, ok := ToFloat64(args[0])
+		if ok {
 			return math.NaN(), errors.NewWrongParamType(0)
 		}
 		return math.Cos(v), nil
@@ -18,7 +18,7 @@ func Cos(args ...interface{}) (interface{}, error) {
 
 func Cosh(args ...interface{}) (interface{}, error) {
 	if len(args) == 1 {
-		v, ok := args[0].(float64)
+		v, ok := ToFloat64(args[0])
 		if !ok {
 			return math.NaN(), errors.NewWrongParamType(0)
 		}
@@ -29,7 +29,7 @@ func Cosh(args ...interface{}) (interface{}, error) {
 
 func Acos(args ...interface{}) (interface{}, error) {
 	if len(args) == 1 {
-		v, ok := args[0].(float64)
+		v, ok := ToFloat64(args[0])
 		if !ok {
 			return math.NaN(), errors.NewWrongParamType(0)
 		}
@@ -40,7 +40,7 @@ func Acos(args ...interface{}) (interface{}, error) {
 
 func Acosh(args ...interface{}) (interface{}, error) {
 	if len(args) == 1 {
-		v, ok := args[0].(float64)
+		v, ok := ToFloat64(args[0])
 		if !ok {
 			return math.NaN(), errors.NewWrongParamType(0)
 		}

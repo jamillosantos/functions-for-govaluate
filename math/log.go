@@ -7,7 +7,7 @@ import (
 
 func Log(args ...interface{}) (interface{}, error) {
 	if len(args) == 1 {
-		v, ok := args[0].(float64)
+		v, ok := ToFloat64(args[0])
 		if !ok {
 			return math.NaN(), errors.NewWrongParamType(0)
 		}
@@ -18,7 +18,7 @@ func Log(args ...interface{}) (interface{}, error) {
 
 func Log10(args ...interface{}) (interface{}, error) {
 	if len(args) == 1 {
-		v, ok := args[0].(float64)
+		v, ok := ToFloat64(args[0])
 		if !ok {
 			return math.NaN(), errors.NewWrongParamType(0)
 		}
