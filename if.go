@@ -7,8 +7,12 @@ func If(args ...interface{}) (interface{}, error) {
 			switch cond := args[0].(type) {
 			case bool:
 				condition = cond
-			case float64, float32, int, uint, int8, int16, int32, int64, uint8, uint16, uint32, uint64:
-				return IsDefined(args[0])
+			case string, float64, float32, int, uint, int8, int16, int32, int64, uint8, uint16, uint32, uint64:
+				c, err := IsDefined(args[0])
+				if err != nil {
+					return nil, err
+				}
+				condition = c.(bool)
 			default:
 				return nil, NewWrongParamType(0)
 			}

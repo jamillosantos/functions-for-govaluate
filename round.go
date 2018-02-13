@@ -36,9 +36,9 @@ func Round(args ...interface{}) (interface{}, error) {
 		if math.IsNaN(v) {
 			return math.NaN(), nil
 		}
-		if v > 0.5 {
+		if v >= 0.5 {
 			return math.Trunc(v + 0.5), nil
-		} else if v < -0.5 {
+		} else if v <= -0.5 {
 			return math.Trunc(v - 0.5), nil
 		}
 		return 0.0, nil

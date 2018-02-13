@@ -7,7 +7,7 @@ import (
 func Cos(args ...interface{}) (interface{}, error) {
 	if len(args) == 1 {
 		v, ok := ToFloat64(args[0])
-		if ok {
+		if !ok {
 			return math.NaN(), NewWrongParamType(0)
 		}
 		return math.Cos(v), nil

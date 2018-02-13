@@ -3,11 +3,13 @@ package functions_for_govaluate
 func IsDefined(args ...interface{}) (interface{}, error) {
 	if len(args) == 1 {
 		if args[0] != nil {
-			switch cond := args[0].(type) {
+			switch v := args[0].(type) {
 			case string:
-				return cond != "", nil
-			case float64:
-				return cond != 0.0, nil
+				return v != "", nil
+			case float32, float64:
+				return v != 0.0, nil
+			case int, uint, int16, uint16, int32, uint32, int64, uint64:
+				return v != 0, nil
 			default:
 				return nil, NewWrongParamType(0)
 			}
