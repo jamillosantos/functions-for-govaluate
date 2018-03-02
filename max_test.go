@@ -42,7 +42,7 @@ var _ = Describe("max, min functions", func() {
 		})
 	})
 
-	FDescribe("min", func() {
+	Describe("min", func() {
 		It("should resolve a dual min", func() {
 			c, err := functions_for_govaluate.Min(2, 1)
 			Expect(err).To(BeNil())
