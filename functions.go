@@ -39,6 +39,9 @@ var MathFunctions map[string]govaluate.ExpressionFunction = map[string]govaluate
 	"atan2": Atan2,
 	"tanh":  Tanh,
 	"atanh": Atanh,
+
+	"max": Max,
+	"min": Min,
 }
 
 var Functions map[string]govaluate.ExpressionFunction
